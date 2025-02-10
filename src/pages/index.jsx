@@ -107,7 +107,7 @@ function MainPage() {
                 <p dangerouslySetInnerHTML={{ __html: data.section1.intro }} />
 
                 <div className="contacts-row">
-                    <a href="/amabile_zucchetti_resume.pdf" download className="download-button">
+                    <a href="https://amabilee.github.io/portfolio-website/amabile_zucchetti_resume.pdf" target="_blank" className="download-button">
                         <button>{data.section1.contacts.resumeButton}</button>
                     </a>
                     <div className="divider-line"></div>

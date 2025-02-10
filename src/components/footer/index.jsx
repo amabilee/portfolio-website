@@ -14,21 +14,21 @@ import English from '../../mocks/english.json'
 function footer_component() {
   const [data, setData] = useState(English);
 
-    useEffect(() => {
-        const userLanguage = navigator.language || navigator.languages[0];
-        if (userLanguage.startsWith('en')) {
-            setData(English);
-        } else if (userLanguage.startsWith('pt')) {
-            setData(Portuguese);
-        } else {
-            setData(English);
-        }
-    }, []);
+  useEffect(() => {
+    const userLanguage = navigator.language || navigator.languages[0];
+    if (userLanguage.startsWith('en')) {
+      setData(English);
+    } else if (userLanguage.startsWith('pt')) {
+      setData(Portuguese);
+    } else {
+      setData(English);
+    }
+  }, []);
 
   return (
     <>
       <div className='footer-column'>
-        <a href="/amabile_zucchetti_resume.pdf" download className="download-button">
+        <a href="https://amabilee.github.io/portfolio-website/amabile_zucchetti_resume.pdf" target="_blank" className="download-button">
           <button>{data.footer.resume}</button>
         </a>
         <div className="social-media">
@@ -69,7 +69,7 @@ function footer_component() {
         </div>
 
         <div className='footer-column'>
-          <a href="/amabile_zucchetti_resume.pdf" download className="download-button">
+          <a href="https://amabilee.github.io/portfolio-website/amabile_zucchetti_resume.pdf" target="_blank" className="download-button">
             <button>{data.footer.resume}</button>
           </a>
         </div>
