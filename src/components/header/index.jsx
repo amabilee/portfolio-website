@@ -23,7 +23,7 @@ function header_component() {
     section1: 100,
     section2: 0,
     section3: -200,
-    section4: -800,
+    section4: -1000,
     default: -1000
   };
 
