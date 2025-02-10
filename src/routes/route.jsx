@@ -1,15 +1,14 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import Main from '../pages/index.jsx';
-
 
 function Router() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Main />} />
       </Routes>
-    </BrowserRouter>
-  )
+    </HashRouter>
+  );
 }
-export default Router
+
+export default Router;
