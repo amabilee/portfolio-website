@@ -1,0 +1,131 @@
+{
+    "header": {
+        "home": "Home",
+        "capabilities": "Skills",
+        "experience": "Experience",
+        "projects": "Projects"
+    },
+    "section1": {
+      "title": "Amábile <span>Zucchetti</span>",
+      "subtitle": "I have been working as a full-stack developer for <span>2 years</span>. Currently, I am based in <span>Brazil</span>.",
+      "intro": "Learn more <span>about my skills and projects —</span> just scroll down",
+      "contacts": {
+        "resumeButton": "Resume",
+        "socialMedia": {
+          "linkedin": "https://www.linkedin.com/in/amabilezucchetti",
+          "github": "https://github.com/amabilee",
+          "email": "mailto:amabilezucchetti@proton.me"
+        }
+      }
+    },
+    "section2": {
+      "skillsBox": {
+        "title": "My Skills",
+        "skills": [
+          "UI/UX Design",
+          "Full-Stack Web Development",
+          "Mobile Application Development",
+          "Database Design and Management",
+          "API Development and Integration"
+        ]
+      },
+      "toolsBox": {
+        "title": "Tools in My Toolbox",
+        "interface": "Interface & System Design",
+        "tools": {
+          "frontEnd": "ReactJS, SCSS, JavaScript, JQuery, VITE",
+          "backEnd": "Node.js, Express, Sequelize, MySQL, Swagger",
+          "design": "Figma, AstahUML, Draw.io"
+        }
+      }
+    },
+    "section3": {
+      "title": "Experience",
+      "subtitle": "ROLES THROUGHOUT MY CAREER",
+      "categories": ["title", "from", "to", "company"],
+      "jobData": [
+        {
+          "job": "job_1",
+          "title": "Intern",
+          "startDate": "February 2020",
+          "endDate": "February 2021",
+          "company": "onBlox Software Logistics"
+        },
+        {
+          "job": "job_2",
+          "title": "Software Engineer - I",
+          "startDate": "May 2024",
+          "endDate": "October 2024",
+          "company": "Brazilian Air Force - BAAN"
+        },
+        {
+          "job": "job_3",
+          "title": "Software Engineer - II",
+          "startDate": "November 2023",
+          "endDate": "null",
+          "company": "Turing Technology Factory"
+        }
+      ]
+    },
+    "section4": {
+      "title": "Projects",
+      "subtitle": "BROWSE SOME OF THE MAIN PROJECTS I'VE WORKED ON",
+      "projects": [
+        {
+          "title": "Navigation Automation Tool",
+          "tags": [
+            "Python",
+            "Selenium",
+            "Chromedriver",
+            "PyQt5"
+          ],
+          "description": "A tool to automate navigation tasks by defining and managing sequences of links with customizable intervals.",
+          "button": {
+            "link": "https://github.com/amabilee/navigation-automation-tool",
+            "text": "GitHub"
+          }
+        },
+        {
+          "title": "Access Control System",
+          "tags": [
+            "ReactJS",
+            "NodeJS",
+            "MySQL",
+            "RESTful API",
+            "Docker",
+            "Swagger"
+          ],
+          "description": "Access control system with authentication, badge management, and real-time movement monitoring, including detailed records and reports.",
+          "buttons": [
+            {
+              "link": "https://github.com/amabilee/sca-back-end",
+              "text": "Backend"
+            },
+            {
+              "link": "https://github.com/amabilee/sca-front-end",
+              "text": "Frontend"
+            }
+          ]
+        },
+        {
+          "title": "Inventory Management System - Frontend",
+          "tags": [
+            "ReactJS",
+            "JQuery",
+            "Bootstrap",
+            "Mui-material"
+          ],
+          "description": "Frontend for an inventory management system that streamlines processes, enhances mobile accessibility, and improves order validation efficiency.",
+          "button": {
+            "link": "https://github.com/amabilee/pasteur/tree/main/front-end",
+            "text": "GitHub"
+          }
+        }
+      ]
+    },
+    "footer": {
+      "resume": "Resume",
+      "based": "BASED IN BRAZIL",
+      "present": "present"
+    }
+}
