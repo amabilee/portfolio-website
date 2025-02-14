@@ -45,13 +45,13 @@ function footer_component() {
       </div>
       <div className="footer-container">
         <div className='footer-column'>
-          <p className='notranslate'>Amábile <span>Zucchetti</span></p>
+          <p className='notranslate'>{data.footer.based} Amábile <span>Zucchetti</span></p>
           <div className="inside-line">
             <div>
               <img src={BrazilianFlag} alt='Brazilian Flag' />
-              <p>{data.footer.based}</p>
+              {/* <p>{data.footer.based}</p> */}
             </div>
-            <p>© 2025 - {data.footer.present}</p>
+            <p>© Copyright 2025</p>
           </div>
         </div>
         <div className='footer-column'>

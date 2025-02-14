@@ -104,7 +104,7 @@ function MainPage() {
             <div id="section1" className="hero-container">
                 <h1 dangerouslySetInnerHTML={{ __html: data.section1.title }} />
                 <h3 dangerouslySetInnerHTML={{ __html: data.section1.subtitle }} />
-                <p dangerouslySetInnerHTML={{ __html: data.section1.intro }} />
+                {/* <p dangerouslySetInnerHTML={{ __html: data.section1.intro }} /> */}
 
                 <div className="contacts-row">
                     <a href="https://amabilee.github.io/portfolio-website/amabile_zucchetti_resume.pdf" target="_blank" className="download-button">
@@ -146,13 +146,13 @@ function MainPage() {
             </div>
             <div id="section3" className="experience-container">
                 <h2>{data.section3.title}</h2>
-                <p>{data.section3.subtitle}</p>
+                {/* <p>{data.section3.subtitle}</p> */}
                 <div className="divisor" ref={divisorRef}>
                     <img src={Divisor} alt="Experience Divisor Lines" />
                 </div>
                 {data.section3.jobData.map((job, idx) => (
                     <div key={idx} className="job-box" ref={(e) => (jobBoxesRef.current[idx] = e)}>
-                        <p>1 &nbsp;&nbsp; <span>const</span> {job.job} = &#123;</p>
+                        <p>1 &nbsp;&nbsp; <span>var</span> {job.job} = &#123;</p>
                         <p>2 &nbsp;&nbsp;&nbsp; {data.section3.categories[0]}: <span dangerouslySetInnerHTML={{ __html: job.title }} /></p>
                         <p>3 &nbsp;&nbsp;&nbsp; {data.section3.categories[1]}: <span dangerouslySetInnerHTML={{ __html: job.startDate }} /></p>
                         <p>4 &nbsp;&nbsp;&nbsp; {data.section3.categories[2]}: <span dangerouslySetInnerHTML={{ __html: job.endDate }} /></p>
@@ -164,7 +164,7 @@ function MainPage() {
             </div>
             <div id="section4" className="project-container">
                 <h2>{data.section4.title}</h2>
-                <p>{data.section4.subtitle}</p>
+                {/* <p>{data.section4.subtitle}</p> */}
                 <div className="line-projects">
                     {data.section4.projects.map((project, index) => (
                         <div key={index} className="project-box" ref={(e) => (projectBoxesRef.current[index] = e)}>

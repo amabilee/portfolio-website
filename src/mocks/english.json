@@ -7,10 +7,10 @@
     },
     "section1": {
       "title": "Amábile <span>Zucchetti</span>",
-      "subtitle": "I have been working as a full-stack developer for <span>2 years</span>. Currently, I am based in <span>Brazil</span>.",
+      "subtitle": "A full-stack developer for <span>2 years</span>",
       "intro": "Learn more <span>about my skills and projects —</span> just scroll down",
       "contacts": {
-        "resumeButton": "Resume",
+        "resumeButton": "Resume | PDF",
         "socialMedia": {
           "linkedin": "https://www.linkedin.com/in/amabilezucchetti",
           "github": "https://github.com/amabilee",
@@ -20,7 +20,7 @@
     },
     "section2": {
       "skillsBox": {
-        "title": "My Skills",
+        "title": "Skills",
         "skills": [
           "UI/UX Design",
           "Full-Stack Web Development",
@@ -30,7 +30,7 @@
         ]
       },
       "toolsBox": {
-        "title": "Tools in My Toolbox",
+        "title": "Tools",
         "interface": "Interface & System Design",
         "tools": {
           "frontEnd": "ReactJS, SCSS, JavaScript, JQuery, VITE",
@@ -124,8 +124,8 @@
       ]
     },
     "footer": {
-      "resume": "Resume",
-      "based": "BASED IN BRAZIL",
+      "resume": "Resume | PDF",
+      "based": "Made by",
       "present": "present"
     }
 }

@@ -7,10 +7,10 @@
     },
     "section1": {
       "title": "Amábile <span>Zucchetti</span>",
-      "subtitle": "Trabalho como desenvolvedora full stack há <span>2 anos</span>. Atualmente estou no <span>Brasil</span>.",
+      "subtitle": "Desenvolvedora full stack há <span>2 anos</span>",
       "intro": "Saiba mais <span>sobre minhas habilidades e projetos —</span> basta rolar",
       "contacts": {
-        "resumeButton": "Currículo",
+        "resumeButton": "Currículo | PDF",
         "socialMedia": {
           "linkedin": "https://www.linkedin.com/in/amabilezucchetti",
           "github": "https://github.com/amabilee",
@@ -20,7 +20,7 @@
     },
     "section2": {
       "skillsBox": {
-        "title": "Minhas Habilidades",
+        "title": "Habilidades",
         "skills": [
           "Design de UI/UX",
           "Desenvolvimento Full-Stack Web",
@@ -30,7 +30,7 @@
         ]
       },
       "toolsBox": {
-        "title": "Ferramentas na Minha Caixa de Ferramentas",
+        "title": "Ferramentas",
         "interface": "Interface & Design de Sistema",
         "tools": {
           "frontEnd": "ReactJS, SCSS, JavaScript, JQuery, VITE",
@@ -124,8 +124,8 @@
       ]
     },
     "footer": {
-      "resume": "Currículo",
-      "based": "ESTOU NO BRASIL",
+      "resume": "Currículo | PDF",
+      "based": "Feito por",
       "present": "presente"
     }
   }

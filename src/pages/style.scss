@@ -36,7 +36,7 @@
 
             >span {
                 font-size: 7vw;
-                background: linear-gradient(0.45turn, #955DF6, #34008E);
+                background: linear-gradient(0.45turn, #5DAFF6, #00338C);
                 animation: moveGradient 5s infinite ease-in-out;
                 -webkit-background-clip: text;
                 color: transparent;
@@ -58,7 +58,7 @@
             margin: 30px 0 0 0;
 
             >span {
-                color: #955DF6;
+                color: #5DAFF6;
             }
 
         }
@@ -84,7 +84,7 @@
 
             button {
                 background-color: transparent;
-                border: 0.1vh solid #955DF6;
+                border: 0.1vh solid #5DAFF6;
                 width: 10vw;
                 height: 4vh;
                 cursor: pointer;
@@ -93,11 +93,13 @@
                 font-family: "Space Grotesk", serif;
                 color: white;
                 border-radius: 10px;
-                box-shadow: 0 0 5px 0 rgba(149, 93, 246, 0.05) inset, 0 0 20px 2px rgb(149, 93, 246, 0.5);
+                animation: buttonPulse 3s infinite ease-in-out;
+                box-shadow: 0 0 5px 0 rgba(93, 175, 246, 0.05) inset, 0 0 20px 2px rgb(93, 175, 246, 0.5);
                 transition: all 0.5s ease-in-out;
 
                 &:hover {
-                    box-shadow: 0 0 40px 40px rgb(149, 93, 246) inset, 0 0 0 0 rgb(149, 93, 246);
+                    background-color: #5DAFF6;
+                    box-shadow: 0 0 40px 40px rgb(93, 175, 246) inset, 0 0 0 0 rgb(93, 175, 246);
                 }
             }
 
@@ -160,7 +162,7 @@
             transition: box-shadow 0.6s ease-out;
 
             &:hover {
-                box-shadow: 0 0px 40px rgba(149, 93, 246, 0.4);
+                box-shadow: 0 0px 40px rgba(93, 175, 246, 0.4);
             }
 
             >.title {
@@ -203,7 +205,7 @@
     }
 
     .experience-container {
-        padding: 40vh 10vw 0 10vw;
+        padding: 20vh 10vw 0 10vw;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -217,10 +219,10 @@
             font-weight: 800;
             font-family: "Space Grotesk", serif;
             color: white;
+            margin: 15px 0 160px 0;
         }
 
         >p:nth-of-type(1) {
-            margin: 15px 0 160px 0;
             font-size: 2vh;
             font-weight: 400;
             font-family: "Inter", serif;
@@ -229,7 +231,7 @@
 
         >.divisor {
             position: absolute;
-            top: 65vh;
+            top: 45vh;
             height: 80vh;
 
             >img {
@@ -254,7 +256,7 @@
             }
 
             &:hover {
-                box-shadow: 0 0px 40px rgba(149, 93, 246, 0.4);
+                box-shadow: 0 0px 40px rgba(93, 175, 246, 0.4);
             }
 
             transition: opacity 0.6s ease-in-out,
@@ -269,20 +271,20 @@
                 color: #fff;
 
                 >span {
-                    color: #955DF6;
+                    color: #5DAFF6;
                 }
             }
 
             &:nth-of-type(2) {
                 position: absolute;
-                top: 65vh;
+                top: 45vh;
                 left: max(calc(50% - 25%), 25%);
                 transform: translateX(-50%) translateY(50px);
             }
 
             &:nth-of-type(3) {
                 position: absolute;
-                top: 90vh;
+                top: 70vh;
                 right: max(calc(50% - 25%), 25%);
                 transform: translateX(50%);
                 transition-delay: 0.4s;
@@ -292,7 +294,7 @@
             &:nth-of-type(4) {
                 transition-delay: 0.6s;
                 position: absolute;
-                top: 115vh;
+                top: 95vh;
                 left: max(calc(50% - 25%), 25%);
                 transform: translateX(-50%);
             }
@@ -301,7 +303,7 @@
 
     .project-container {
         width: 100%;
-        padding: 120vh 8vw 20vh 8vw;
+        padding: 100vh 8vw 20vh 8vw;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -313,6 +315,7 @@
             font-weight: 800;
             font-family: "Space Grotesk", serif;
             color: white;
+            margin: 15px 0 160px 0;
         }
 
         >p:nth-of-type(1) {
@@ -349,7 +352,7 @@
                 }
 
                 &:hover {
-                    box-shadow: 0 0px 40px rgba(149, 93, 246, 0.4);
+                    box-shadow: 0 0px 40px rgba(93, 175, 246, 0.4);
                 }
 
                 &:nth-child(1) {
@@ -394,7 +397,7 @@
                         text-align: center;
                         padding: 1px 10px;
                         border-radius: 10px;
-                        background-color: #955DF6;
+                        background-color: #5DAFF6;
                         margin: 0 15px 0 0;
 
                         &:nth-child(n+4) {
@@ -516,7 +519,7 @@
 
 @media (max-width: 1200px) {
     .hero-container {
-        padding: 20vh 2vw 10vh 2vw !important;
+        padding: 15vh 2vw 0vh 2vw !important;
 
         >h1 {
             font-size: 20vw !important;
@@ -557,6 +560,7 @@
             }
 
             button {
+                display: none !important;
                 width: 50% !important;
             }
 
@@ -593,7 +597,7 @@
 
     .capabilities-container {
         display: flex;
-        padding: 30vh 5vw 0 5vw !important;
+        padding: 25vh 5vw 0 5vw !important;
         flex-direction: column !important;
         justify-content: space-between !important;
         align-items: center !important;
@@ -619,9 +623,10 @@
             padding: 50px;
             background-color: #0F0F0F;
             transition: box-shadow 0.6s ease-out;
+            box-shadow: 0 0px 40px rgba(93, 175, 246, 0.25) !important;
 
             &:hover {
-                box-shadow: 0 0px 40px rgba(149, 93, 246, 0.4);
+                box-shadow: 0 0px 40px rgba(93, 175, 246, 0.4);
             }
 
             >.title {
@@ -664,12 +669,16 @@
     }
 
     .experience-container {
-        padding: 20vh 10vw 0 10vw !important;
+        padding: 10vh 10vw 0 10vw !important;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
         position: relative;
+
+        >h2 {
+            margin: 15px 0 100px 0 !important;
+        }
 
         >p:nth-of-type(1) {
             text-align: center;
@@ -688,8 +697,10 @@
             margin: 0 0 5vh 0;
             transform: translateX(0%) translateY(0px) !important;
             padding: 0.5vh 3vw 0.5vh 3vw !important;
+            box-shadow: 0 0px 40px rgba(93, 175, 246, 0.25) !important;
 
             >p {
+                color: #D7D7D7 !important;
                 margin: 1.4vh 0 1vh 0 !important;
                 font-size: 2.9vw !important;
             }
@@ -697,11 +708,15 @@
     }
 
     .project-container {
-        padding: 20vh 8vw 10vh 8vw !important;
+        padding: 10vh 8vw 0vh 8vw !important;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
+
+        >h2 {
+            margin: 0px 0 100px 0 !important;
+        }
 
         >p:nth-of-type(1) {
             text-align: center;
@@ -719,6 +734,7 @@
                 min-height: fit-content !important;
                 margin: 0 0 100px 0;
                 width: 100% !important;
+                box-shadow: 0 0px 40px rgba(93, 175, 246, 0.25) !important;
 
                 >.project-buttons {
                     display: flex;
@@ -729,16 +745,8 @@
                     margin: 50px 0 0 0;
 
                     >button {
-                        border: 0.15vh solid #3D3D3D;
-                        border-radius: 1.4vh;
                         width: 30vw !important;
-                        height: 5vh;
-                        background-color: transparent;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        cursor: pointer;
-                        transition: all 0.5s ease-in-out;
+                        animation: buttonArrowPulse 3s infinite ease-in-out !important;
 
                         &:nth-of-type(2) {
                             margin: 0 0 0 5%;
@@ -760,6 +768,11 @@
                     }
                 }
 
+                >.project-button-arrow {
+                    >button {
+                        animation: buttonArrowPulse 3s infinite ease-in-out !important;
+                    }
+                }
             }
         }
     }
@@ -821,5 +834,36 @@
 
     100% {
         background-position: top left;
+    }
+}
+
+@keyframes buttonPulse {
+    0% {
+        box-shadow: none;
+    }
+
+    50% {
+        box-shadow: 0 0 5px 0 rgba(93, 175, 246, 0.05) inset, 0 0 20px 2px rgb(93, 175, 246, 0.5);
+    }
+
+    100% {
+        box-shadow: none;
+    }
+}
+
+@keyframes buttonArrowPulse {
+    0% {
+        border: 0.15vh solid #3D3D3D;
+        background-color: transparent;
+    }
+
+    50% {
+        background-color: #333333;
+        border: 0.15vh solid #1F1F1F;
+    }
+
+    100% {
+        border: 0.15vh solid #3D3D3D;
+        background-color: transparent;
     }
 }
