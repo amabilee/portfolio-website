@@ -1,132 +1,33 @@
 {
-    "header": {
-        "home": "Início",
-        "capabilities": "Conhecimentos",
-        "experience": "Experiência",
-        "projects": "Projetos"
+  "header": {
+    "github": "github",
+    "linkedin": "linkedin",
+    "email": "email",
+    "curriculo": "currículo",
+    "local": "desenvolvedora de software"
+  },
+  "hero": {
+    "title": "seleção dos trabalhos que estou realizando e dos que já foram finalizados",
+    "studying": "no momento, estudando: <span>typescript</span>, <span>react</span>, <span>nodejs</span>"
+  },
+  "projects": {
+    "completo": "completo",
+    "pendente": "em andamento",
+    "projects": "projetos",
+    "project1": {
+      "title": "controle de acesso",
+      "description": "ferramenta para gestão e registros de movimentação"
     },
-    "section1": {
-      "title": "Amábile <span>Zucchetti</span>",
-      "subtitle": "Desenvolvedora full stack há <span>2 anos</span>",
-      "intro": "Saiba mais <span>sobre minhas habilidades e projetos —</span> basta rolar",
-      "contacts": {
-        "resumeButton": "Currículo | PDF",
-        "socialMedia": {
-          "linkedin": "https://www.linkedin.com/in/amabilezucchetti",
-          "github": "https://github.com/amabilee",
-          "email": "mailto:amabilezucchetti@proton.me"
-        }
-      }
+    "project2": {
+      "title": "gestão de inventário",
+      "description": "sistema para aumentar a eficiência na gestão de inventário e pedidos"
     },
-    "section2": {
-      "skillsBox": {
-        "title": "Habilidades",
-        "skills": [
-          "Design de UI/UX",
-          "Desenvolvimento Full-Stack Web",
-          "Desenvolvimento de Aplicações Móveis",
-          "Design e Gestão de Banco de Dados",
-          "Desenvolvimento e Integração de APIs"
-        ]
-      },
-      "toolsBox": {
-        "title": "Ferramentas",
-        "interface": "Interface & Design de Sistema",
-        "tools": {
-          "frontEnd": "ReactJS, SCSS, JavaScript, JQuery, VITE",
-          "backEnd": "Node.js, Express, Sequelize, MySQL, Swagger",
-          "design": "Figma, AstahUML, Draw.io"
-        }
-      }
-    },
-    "section3": {
-      "title": "Experiência",
-      "subtitle": "CARGOS AO LONGO DA MINHA CARREIRA",
-      "categories": ["título", "desde", "até", "empresa"],
-      "jobData": [
-        {
-          "job": "job_1",
-          "title": "Estagiário",
-          "startDate": "Fevereiro 2020",
-          "endDate": "Fevereiro 2021",
-          "company": "onBlox Software Logístico"
-        },
-        {
-          "job": "job_2",
-          "title": "Engenheiro de Software - I",
-          "startDate": "Maio 2024",
-          "endDate": "Outubro 2024",
-          "company": "Força Aérea FAB/BAAN"
-        },
-        {
-          "job": "job_3",
-          "title": "Engenheiro de Software - II",
-          "startDate": "Novembro 2023",
-          "endDate": "null",
-          "company": "Fábrica Tecnologias Turing"
-        }
-      ]
-    },
-    "section4": {
-      "title": "Projetos",
-      "subtitle": "NAVEGUE POR ALGUNS DOS PRINCIPAIS PROJETOS EM QUE TRABALHEI",
-      "projects": [
-        {
-          "title": "Ferramenta de Automação de Navegação",
-          "tags": [
-            "Python",
-            "Selenium",
-            "Chromedriver",
-            "PyQt5"
-          ],
-          "description": "Uma ferramenta para automatizar tarefas de navegação definindo e gerenciando sequências de links com intervalos personalizáveis.",
-          "button": {
-            "link": "https://github.com/amabilee/navigation-automation-tool",
-            "text": "GitHub"
-          }
-        },
-        {
-          "title": "Sistema de Controle de Acesso",
-          "tags": [
-            "ReactJS",
-            "NodeJS",
-            "MySQL",
-            "API RESTful",
-            "Docker",
-            "Swagger"
-          ],
-          "description": "Sistema de controle de acesso com autenticação, gestão de crachás e monitoramento de movimentação em tempo real, com registros e relatórios detalhados.",
-          "buttons": [
-            {
-              "link": "https://github.com/amabilee/sca-back-end",
-              "text": "Backend"
-            },
-            {
-              "link": "https://github.com/amabilee/sca-front-end",
-              "text": "Frontend"
-            }
-          ]
-        },
-        {
-          "title": "Sistema de Gestão de Inventário - Frontend",
-          "tags": [
-            "ReactJS",
-            "JQuery",
-            "Bootstrap",
-            "Mui-material"
-          ],
-          "description": "Frontend para um sistema de gestão de inventário que agiliza processos, melhora a acessibilidade móvel e aumenta a eficiência na validação de pedidos.",
-          "button": {
-            "link": "https://github.com/amabilee/pasteur/tree/main/front-end",
-            "text": "GitHub"
-          }
-        }
-      ]
-    },
-    "footer": {
-      "resume": "Currículo | PDF",
-      "based": "Feito por",
-      "present": "presente"
+    "project3": {
+      "title": "automação de navegação",
+      "description": "navega uma sequências de links com intervalos ajustáveis"
     }
+  },
+  "footer": {
+    "builtWith": "construído com <span>javascript</span>, <span>react</span> e <span>scss</span>"
   }
-  
+}
