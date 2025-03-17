@@ -89,7 +89,7 @@ function MainPage() {
                             <img src={MailIcon} />
                         </div>
                     </a>
-                    <a href={data.curriculo === "resume"
+                    <a href={data.header.curriculo !== "currículo"
                         ? "https://amabilee.github.io/portfolio-website/amabile_zucchetti_resume.pdf"
                         : "https://amabilee.github.io/portfolio-website/curriculo_amabile_zucchetti_2025.pdf"} target="_blank">
                         {data.header.curriculo}
