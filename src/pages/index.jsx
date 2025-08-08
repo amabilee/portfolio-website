@@ -1,228 +1,325 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from "react";
 import './style.scss';
 
+// Icons
+import GithubIcon from '../assets/icons/github.png'
+import LinkedinIcon from '../assets/icons/LinkedIn.png'
+import MailIcon from '../assets/icons/Email_Green.png'
 
 // Assets
-import LinkedInIcon from '../assets/images/linkedin.svg'
-import GithubIcon from '../assets/images/github.svg'
-import MailIcon from '../assets/images/mail.svg'
-import ResumeIcon from '../assets/images/resume.svg'
-import BrazilianFlag from '../assets/images/brazilian_flag.svg'
-import UnitedKingdomFlag from '../assets/images/united_kingdom_flag.svg'
-import ItalyFlag from '../assets/images/italy_flag.svg'
+import ArrowIcon from '../assets/icons/arrow_pixel.svg?react';
+import MediumArrow from '../assets/icons/medium_arrow.svg?react'
 
+//Footer
+import FlowerPixelArt from '../assets/pixelart/flower_pixelart.png'
 
-
-//Content
-import Portuguese from '../mocks/portuguese.json'
-import English from '../mocks/english.json'
-import Italian from '../mocks/italian.json'
+//Data
+import JSONFile from '../mocks/data.json'
 
 function MainPage() {
-    const [data, setData] = useState(Italian);
+    const data = JSONFile
+    const [page, setPage] = useState('main')
+    const [currentLanguage, SetCurrentLanguage] = useState('english')
+
+    // Nav Manager
+    const [activeSection, setActiveSection] = useState("home");
+    const visibilityMap = useRef({});
 
     useEffect(() => {
-        const userLanguage = navigator.language || navigator.languages[0];
-        if (userLanguage.startsWith('en')) {
-            setData(English);
-        } else if (userLanguage.startsWith('pt')) {
-            setData(Portuguese);
-        } else if (userLanguage.startsWith('it')) {
-            setData(Italian);
-        } else {
-            setData(English);
-        }
+        const sections = document.querySelectorAll(".observed-section");
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    const id = entry.target.id;
+                    const visibleHeight = entry.intersectionRect.height;
+                    visibilityMap.current[id] = visibleHeight >= 300;
+                });
+
+                for (const section of sections) {
+                    const id = section.id;
+                    if (visibilityMap.current[id]) {
+                        const othersInvisible = [...sections]
+                            .filter((s) => s.id !== id)
+                            .every((s) => !visibilityMap.current[s.id]);
+
+                        if (othersInvisible) {
+                            setActiveSection(id);
+                            break;
+                        }
+                    }
+                }
+            },
+            {
+                root: null,
+                threshold: Array.from({ length: 101 }, (_, i) => i / 100),
+            }
+        );
+
+        sections.forEach((section) => observer.observe(section));
+
+        const boxes = document.querySelectorAll(".experience-box, .project-box");
+
+        const boxObserver = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.intersectionRatio === 1) {
+                        entry.target.classList.add("viewing");
+                    } else {
+                        entry.target.classList.remove("viewing");
+                    }
+                });
+            },
+            {
+                threshold: 1.0,
+            }
+        );
+
+        boxes.forEach((box) => boxObserver.observe(box));
+
+
+        return () => {
+            observer.disconnect();
+            boxObserver.disconnect();
+        };
+
     }, []);
 
-    const changeLanguage = (language) => {
-        switch (language) {
-            case 'pt':
-                setData(Portuguese);
-                break
-            case 'en':
-                setData(English);
-                break
-            case 'it':
-                setData(Italian);
-                break
-            default:
-                setData(English);
-                break
+    const changePage = (page) => {
+        if (page == 'projects') {
+            setPage('projects')
+        } else {
+            setPage('main')
         }
     }
+    // Language
+
+    function getWebLanguageCode() {
+        const lang = navigator.language || navigator.userLanguage || 'en';
+        return lang.split('-')[0];
+    }
+
+    useEffect(() => {
+        let tempLanguage = getWebLanguageCode()
+        switch (tempLanguage) {
+            case 'en':
+                SetCurrentLanguage('english');
+                break;
+            case 'pt':
+                SetCurrentLanguage('portuguese');
+                break;
+            case 'it':
+                SetCurrentLanguage('italian');
+                break;
+            default:
+                SetCurrentLanguage('english');
+                break;
+
+        }
+    }, [])
+
 
     return (
         <div className="body-container">
-            <div className="header">
-                <div className="header_left">
-                    <h1>amabile zucchetti</h1>
-                    <p>{data.header.local}</p>
-                </div>
-                <div className="header_right">
-                    <a
-                        href="#"
-                        onClick={(e) => {
-                            e.preventDefault();
-                            window.open("https://github.com/amabilee", "_blank");
-                        }}
-                    >
-                        github
-                        <div className="text_container">
-                            <img src={GithubIcon} />
-                        </div>
-                    </a>
-                    <a
-                        href="#"
-                        onClick={(e) => {
-                            e.preventDefault();
-                            window.open("https://www.linkedin.com/in/amabilezucchetti", "_blank");
-                        }}
-                    >
-                        linkedin
-                        <div className="text_container">
-                            <img src={LinkedInIcon} />
-                        </div>
-                    </a>
-                    <a href='mailto:amabilezucchetti@proton.me'>
-                        email
-                        <div className="text_container">
-                            <img src={MailIcon} />
-                        </div>
-                    </a>
-                    <a href={data.header.curriculo !== "currículo"
-                        ? "https://amabilee.github.io/portfolio-website/amabile_zucchetti_resume.pdf"
-                        : "https://amabilee.github.io/portfolio-website/curriculo_amabile_zucchetti_2025.pdf"} target="_blank">
-                        {data.header.curriculo}
-                        <div className="text_container">
-                            <img src={ResumeIcon} />
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div className="hero">
-                <h2>{data.hero.title}</h2>
-                <h3 dangerouslySetInnerHTML={{ __html: data.hero.studying }} />
-            </div>
-            <div className="section_one">
-                <p>{data.projects.projects}</p>
-                <div className="project_box">
-                    <div className="project_details">
-                        <div className="project_title">
-                            <p>{data.projects.project1.title}</p>
-                            <div className="green_dot"></div>
-                            <div className="text_container">
-                                <p className="hidden_text">{data.projects.completo}</p>
+            {page == 'main' ? (
+                <>
+                    <div className="left-container">
+                        <div className="wrapper-box">
+                            <div className="titles-container">
+                                <h1>Amabile Zucchetti</h1>
+                                <h2>{data[currentLanguage].title.role}</h2>
+                                <h3>{data[currentLanguage].title.description}</h3>
                             </div>
-                        </div>
-                        <p>{data.projects.project1.description}</p>
-                    </div>
-                    <div className="project_details">
-                        <div className="project_links">
-                            <img src={GithubIcon} />
-                            <div className="text_container">
-                                <a
-                                    href="#"
-                                    className="hidden_text"
-                                    onClick={(e) => {
-                                        e.preventDefault();
-                                        window.open("https://github.com/amabilee/sca-back-end", "_blank");
-                                        window.open("https://github.com/amabilee/sca-front-end", "_blank");
-                                    }}
-                                >
-                                    code
-                                </a>
+                            <div className="nav-container">
+                                <ul>
+                                    <li className={activeSection === "home" ? "active-nav" : ""}>
+                                        <div className="nav-line"></div>
+                                        <p>{data[currentLanguage].navigation[0]}</p>
+                                    </li>
+                                    <li className={activeSection === "experience" ? "active-nav" : ""}>
+                                        <div className="nav-line"></div>
+                                        <p>{data[currentLanguage].navigation[1]}</p>
+                                    </li>
+                                    <li className={activeSection === "projects" ? "active-nav" : ""}>
+                                        <div className="nav-line"></div>
+                                        <p>{data[currentLanguage].navigation[2]}</p>
+                                    </li>
+                                </ul>
                             </div>
-                        </div>
-                        <div className="project_tags">
-                            <p>react</p>
-                            <p>javacsript</p>
-                            <p>nodejs</p>
-                            <p>mysql</p>
+                            <div className="social-container">
+                                <img src={GithubIcon} alt='Github Logo Pixel Art Icon' onClick={(e) => {
+                                    e.preventDefault();
+                                    window.open("https://github.com/amabilee", "_blank");
+                                }}
+                                />
+                                <img src={LinkedinIcon} alt='LinkedIn Logo Pixel Art Icon' onClick={(e) => {
+                                    e.preventDefault();
+                                    window.open("https://www.linkedin.com/in/amabilezucchetti", "_blank");
+                                }}
+                                />
+                                <img src={MailIcon} alt='Mail Logo Pixel Art Icon'
+                                    onClick={() => {
+                                        window.location.href = 'mailto:amabilezucchetti@proton.me';
+                                    }} />
+                            </div>
+                            <p className='last_update_date'>{data[currentLanguage].update_date}</p>
                         </div>
                     </div>
-                </div>
+                    <div className="right-container">
+                        <p id="home" className="home-text observed-section">
+                            {data[currentLanguage].profile.split('<br />').map((line, index) => (
+                                <React.Fragment key={index}>
+                                    {line}
+                                    <br />
+                                </React.Fragment>
+                            ))}
+                        </p>
 
-                <div className="project_box">
-                    <div className="project_details">
-                        <div className="project_title">
-                            <p>{data.projects.project2.title}</p>
-                            <div className="green_dot"></div>
-                            <div className="text_container">
-                                <p className="hidden_text">{data.projects.completo}</p>
-                            </div>
-                        </div>
-                        <p>{data.projects.project2.description}</p>
-                    </div>
-                    <div className="project_details">
-                        <div className="project_links">
-                            <img src={GithubIcon} />
-                            <div className="text_container">
-                                <a
-                                    href="#"
-                                    className="hidden_text"
-                                    onClick={(e) => {
-                                        e.preventDefault();
-                                        window.open("https://github.com/amabilee/pasteur", "_blank");
-                                    }}
-                                >
-                                    code
-                                </a>
-                            </div>
-                        </div>
-                        <div className="project_tags">
-                            <p>react</p>
-                            <p>javacsript</p>
-                            <p>mui material</p>
-                        </div>
-                    </div>
-                </div>
+                        <div id="experience" className="experiences-container observed-section">
+                            <p>{data[currentLanguage].experience.section_title}</p>
 
-                <div className="project_box">
-                    <div className="project_details">
-                        <div className="project_title">
-                            <p>{data.projects.project3.title}</p>
-                            <div className="green_dot"></div>
-                            <div className="text_container">
-                                <p className="hidden_text">{data.projects.completo}</p>
-                            </div>
+                            {data && data[currentLanguage]?.experience?.items?.slice(0, 5).map((element, index) => (
+                                <div className="experience-box" key={index}>
+                                    <div className="date">
+                                        <p>{element.date}</p>
+                                    </div>
+                                    <div className="details">
+                                        <p className='experience-title'>{element.title} - {element.company}</p>
+                                        <p className='experience-detail'>{element.details}</p>
+                                        <div className="experience-tags">
+                                            <ul>
+                                                {element.tags && element.tags.map((tag, indexTag) => (
+                                                    <li key={indexTag}><p>{tag}</p></li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                            <h4
+                                onClick={() => {
+                                    window.location.href = 'https://amabilee.github.io/portfolio-website/resume.pdf';
+                                }}
+                            >{data[currentLanguage].experience.download_resume} <ArrowIcon /></h4>
                         </div>
-                        <p>{data.projects.project3.description}</p>
-                    </div>
-                    <div className="project_details">
-                        <div className="project_links">
-                            <img src={GithubIcon} />
-                            <div className="text_container">
-                                <a
-                                    href="#"
-                                    className="hidden_text"
-                                    onClick={(e) => {
-                                        e.preventDefault();
-                                        window.open("https://github.com/amabilee/navigation-automation-tool", "_blank");
-                                    }}
+                        <div id="projects" className="projects-container observed-section">
+                            <p>{data[currentLanguage].projects.section_title}</p>
+                            {data && data[currentLanguage]?.projects?.items?.slice(0, 3).map((element, index) => (
+                                <div className="project-box" key={index} onClick={() => {
+                                    if (element.link && element.link.trim() !== "") {
+                                        window.open(element.link, "_blank");
+                                    }
+                                }}
+                                    style={{ cursor: element.where_link && element.where_link.trim() !== "" ? "pointer" : "default" }}
                                 >
-                                    code
-                                </a>
-                            </div>
+                                    <div className="details">
+                                        <p className='project-title'>{element.title} <ArrowIcon /></p>
+                                        <p className='project-detail'>{element.details}</p>
+                                        <div className="project-tags">
+                                            <ul>
+                                                {element.tags && element.tags.map((tag, indexTag) => (
+                                                    <li key={indexTag}><p>{tag}</p></li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                            <h4 onClick={() => changePage('projects')}>{data[currentLanguage].projects.view_archive} <ArrowIcon /></h4>
                         </div>
-                        <div className="project_tags">
-                            <p>python</p>
-                            <p>selenium</p>
-                            <p>pyqt5</p>
+                        <div className="footer-container">
+                            <img src={FlowerPixelArt} />
+                            <p className='footer-text'>{data[currentLanguage].credits}</p>
                         </div>
                     </div>
-                </div>
+                </>
+            ) : (
+                <>
+                    <div className="project-archive-container">
+                        <div className="return-text" onClick={() => changePage('main')}>
+                            <div className="svg-wrapper">
+                                <MediumArrow />
+                            </div>
+                            <p>Amabile Zucchetti</p>
+                        </div>
+                        <h1>{data[currentLanguage].projects.main_page.title}</h1>
 
-            </div>
-            <div className="footer">
-                <div className="language_selector">
-                    <img src={BrazilianFlag} onClick={() => changeLanguage('pt')} />
-                    <img src={UnitedKingdomFlag} onClick={() => changeLanguage('en')} />
-                    <img src={ItalyFlag} onClick={() => changeLanguage('it')} />
-                </div>
-                <p dangerouslySetInnerHTML={{ __html: data.footer.builtWith }} />
-            </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    {data && data[currentLanguage]?.projects?.main_page?.table_columns?.map((element, index) => (
+                                        <th scope="col" key={index}>{element}</th>
+                                    ))}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {data && data[currentLanguage]?.projects?.items?.map((element, index) => (
+                                    <tr key={index}>
+                                        <th scope="row">{element.date}</th>
+                                        {element.title && (() => {
+                                            const words = element.title.split(" ");
+                                            const lastWord = words.pop();
+                                            const rest = words.join(" ");
+
+                                            const isClickable = element.link && element.link.trim() !== "";
+                                            const handleClick = () => {
+                                                if (window.innerWidth < 740 && isClickable) {
+                                                    window.open(element.link, "_blank");
+                                                }
+                                            };
+
+                                            return (
+                                                <td
+                                                    onClick={handleClick}
+                                                    style={{
+                                                        cursor:
+                                                            window.innerWidth < 740 && isClickable ? "pointer" : "default",
+                                                    }}
+                                                >
+                                                    {rest}{" "}
+                                                    <span className="nowrap">
+                                                        {lastWord}&nbsp;<ArrowIcon />
+                                                    </span>
+                                                </td>
+                                            );
+                                        })()}
+
+                                        <td
+                                            onClick={() => {
+                                                if (element.where_link && element.where_link.trim() !== "") {
+                                                    window.open(element.where_link, "_blank");
+                                                }
+                                            }}
+                                            style={{ cursor: element.where_link && element.where_link.trim() !== "" ? "pointer" : "default" }}
+                                        >
+                                            {element.where}
+                                        </td>
+
+                                        <td>
+                                            <div className="tag-wrapper">
+                                                {element.tags && element.tags.map((tag, indexTag) => (
+                                                    <span key={indexTag}>{tag}</span>
+                                                ))}
+                                            </div>
+                                        </td>
+                                        <td
+                                            onClick={() => {
+                                                if (element.link && element.link.trim() !== "") {
+                                                    window.open(element.link, "_blank");
+                                                }
+                                            }}
+                                            style={{ cursor: element.link && element.link.trim() !== "" ? "pointer" : "default" }}
+                                        >
+                                            {element.link_title}<ArrowIcon /></td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </>
+            )}
         </div>
-    );
+    )
 }
 
-export default MainPage;
+export default MainPage

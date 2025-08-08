@@ -13,6 +13,14 @@ html{
 }
 
 body{
-    background-color: #000;
+    background-color: #FFFCF3;
+    
+    --title-color: #1E4246;
+    --subtitle-color: #798661;
+    --text-color: #8DB447;
+}
+
+*, html, body{
+    cursor: default;
 }
 `

@@ -1,30 +1,34 @@
-
 # My Web Portfolio
 
 ## Description
-Welcome to the repository of my web portfolio! This project showcases a collection of my main works, skills, and experiences.
+Welcome to the repository of my web portfolio! This project highlights a selection of my key works, skills, and professional experiences.
 
-## How to Run Locally
+## Running Locally
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/amabilee/portfolio-website.git
    ```
-2. Navigate to the project directory:
-   ```bash
+   git clone https://github.com/amabilee/portfolio-website.git
+    ```
+
+2. Enter the project folder:
+
+   ```
    cd portfolio-website
    ```
-3. Install the dependencies:
-   ```bash
+3. Install dependencies:
+
+   ```
    npm install
    ```
 4. Start the development server:
-   ```bash
+
+   ```
    npm run dev
    ```
-5. Access [http://localhost:5173](http://localhost:5173) in your browser.
+5. Open your browser and navigate to the local server URL provided by the terminal.
 
 ## Contact
-- **LinkedIn:** [My Profile](https://www.linkedin.com/in/amabilezucchetti)
-- **GitHub:** [amabilee](https://github.com/amabilee)
+
+* **LinkedIn:** [My Profile](https://www.linkedin.com/in/amabilezucchetti)
+* **GitHub:** [amabilee](https://github.com/amabilee)
 
 Thank you for visiting my portfolio!
