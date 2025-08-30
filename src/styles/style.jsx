@@ -13,11 +13,13 @@ html{
 }
 
 body{
-    background-color: #FFFCF3;
+    overflow: hidden;
+    background-color: #F8F7F5;
     
-    --title-color: #1E4246;
-    --subtitle-color: #798661;
-    --text-color: #8DB447;
+    --main-color: #182026;
+    --second-color: #5564D3;
+    --third-color: #A7ADE4;
+    --fourth-color: #858996;
 }
 
 *, html, body{

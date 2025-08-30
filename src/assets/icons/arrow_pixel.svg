@@ -1,9 +1,0 @@
-<svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect y="8.3335" width="1.66667" height="1.66667" fill="currentColor"/>
-  <rect x="1.66797" y="6.6665" width="1.66667" height="1.66667" fill="currentColor"/>
-  <rect x="3.33203" y="5" width="1.66667" height="1.66667" fill="currentColor"/>
-  <rect x="5" y="3.3335" width="1.66667" height="1.66667" fill="currentColor"/>
-  <rect x="6.66797" y="1.6665" width="1.66667" height="1.66667" fill="currentColor"/>
-  <rect x="8.33203" width="1.66667" height="6.66667" fill="currentColor"/>
-  <rect x="10" width="1.66667" height="6.66667" transform="rotate(90 10 0)" fill="currentColor"/>
-</svg>
